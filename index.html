@@ -3,105 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    
-    <script>
+    <div id="main-contain">
+	<div id="buttons-container">
+		<button id="rock">Rock</button>
+		<button id="paper">Paper</button>
+		<button id="scissors">Scissors</button>
+	</div>
+	
+	<div id="post-round-message">
 
-        function computerPlay() {
-            let turnValue = Math.floor((Math.random() * 3) + 1);
-            if (turnValue === 1) {
-                return "Rock"
-            }
-            else if (turnValue === 2) {
-                return "Paper"
-            }
-            else {
-                return "Scissors"
-            }
-        }
+	</div>
 
-        function playRound(playerSelection, computerSelection) {
-            let loweredPlayerSelection = playerSelection.toLowerCase();
+	<div id="score-container"> 
+		<div id="player-count">
+			<p> 0 </p>
+		</div>
 
-            if (loweredPlayerSelection === "rock") {
-                if (computerSelection === "Scissors") {
-                    return [1, `You Won! Rock beats ${computerSelection}`]
-                }
-                else if (computerSelection === "Rock") {
-                    return [0, `You Tied. Rock neutralizes Rock`]
-                }
-                else {
-                    return [-1, `You Lost. ${computerSelection} beats Rock`]
-                }
-            }
-            else if (loweredPlayerSelection === "paper") {
-                if (computerSelection === "Rock") {
-                    return [1, `You Won! Paper beats ${computerSelection}`]
-                }
-                else if (computerSelection === "Paper") {
-                    return [0, `You Tied. Paper neutralizes Paper`]
-                }
-                else {
-                    return [-1, `You Lost. ${computerSelection} beats Paper`]
-                }
-            }
-            else {
-                if (computerSelection === "Paper") {
-                    return [1, `You Won! Scissors beats ${computerSelection}`]
-                }
-                else if (computerSelection === "Scissors") {
-                    return [0, `You Tied. Scissors neutralizes Scissors`]
-                }
-                else {
-                    return [-1, `You Lost. ${computerSelection} beats Scissors`]
-                }
-            }
-        }
+		<div id="computer-count">
+			<p> 0 </p>
+		</div>
 
-        function game() {
-            /* this is a string, at what point is ----> playerSelection is undefined <---- */
-            let playerInputChoice;
+		<div id="final-result"> 
 
-            let playerScore = 0;
-            let computerScore = 0;
+		</div>
 
-            for (let i = 0; i < 5; i++) {
-                playerInputChoice = prompt("Enter your choice: ");
-                let currentRound = playRound(playerInputChoice, computerPlay());
-                
-                if (currentRound[0] === 1) {
-                    playerScore++;
-                    console.log(currentRound[1]);
-                }
-                else if (currentRound[0] === 0) {
-                    console.log(currentRound[1]);
-                }
-                else {
-                    computerScore++;
-                    console.log(currentRound[1]);
-                }
-            }
-
-            if (playerScore > computerScore) {
-                console.log(`You won the match! ${playerScore} - ${computerScore}`);
-            }
-            else if (playerScore < computerScore) {
-                console.log(`You lost the match! ${playerScore} - ${computerScore}`);
-            }
-            else {
-                console.log(`You tied the match. ${playerScore} - ${computerScore}`);
-            }
-        }
-
-
-
-
-
-
-    </script>
-
-
+	</div>
+    </div>
+     	<script src="scripts.js"></script>
 </body>
 </html>
